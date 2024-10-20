@@ -28,7 +28,6 @@ public $animals = ['Kucing', 'Anjing', 'Gajah', 'Marmut', 'Kancil'];
     public function destroy($id) {
         if (isset($this->animals[$id])) {
             unset($this->animals[$id]);
-            // $this->animals = array_values($this->animals);
         }
     }
 }
