@@ -10,12 +10,11 @@ class StudentController extends Controller
     public function index(){
         $students = Student::all();
         $data = [
-            'message'=>'Berhasil akses data',
+            'message'=>'Akses data sukses',
             'data'=>$students
         ];
 
         return response()->json($data,200);}
-
 
     public function store(Request $request){
         $input =[
@@ -26,12 +25,11 @@ class StudentController extends Controller
 
         $student = Student::create($input);
         $data = [
-            'message' => 'Berhasil input data',
+            'message' => 'Input data sukses',
             'data' => $student,
         ];
 
         return response()->json($data, 201);}
-
 
     public function update(Request $request, $id) {
         $student = Student::find($id);
@@ -42,15 +40,12 @@ class StudentController extends Controller
             'jurusan' => $request->jurusan
         ]);
         return response()->json([
-            'message' => 'Berhasil ubah data',
-            'data' => $student
-        ], 200);}
+            'message' => 'Ubah data sukses',
+            'data' => $student], 200);}
 
-    
     public function destroy($id) {
         $student = Student::find($id);
         $student->delete();
         return response()->json([
-            'message' => 'Berhasil hapus data'
-        ], 200);}
+            'message' => 'Hapus data sukses'], 200);}
 }
